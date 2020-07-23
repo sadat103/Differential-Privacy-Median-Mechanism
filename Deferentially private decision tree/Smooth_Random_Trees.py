@@ -272,16 +272,16 @@ class Tree(DP_Random_Forest):
 
 ''' A toy example of how to call the class '''
 if __name__ == '__main__':
-    data1 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/a.csv', delimiter = ',')
-    data2 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/b.csv', delimiter = ',')
-    data3 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/soyabean.csv', delimiter = ',')
-    data4 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/foresttypes.csv', delimiter = ',')
-    data5 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/breast-cancer-wisconsin.csv', delimiter = ',')
-    data6 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/data_banknote_authentication.csv', delimiter = ',')
-    data7 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/heartdes.csv', delimiter = ',')
-    data8 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/indian_liver_patient_dataset.csv', delimiter = ',')
-    data9 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/iris_dataset.csv', delimiter = ',')
-    data10 = np.genfromtxt('/home/sadat/Downloads/Smooth random trees/Smooth_Random_Trees/seeds_dataset.csv', delimiter = ',')
+    data1 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/a.csv', delimiter = ',')
+    data2 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/b.csv', delimiter = ',')
+    data3 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/soyabean.csv', delimiter = ',')
+    data4 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/foresttypes.csv', delimiter = ',')
+    data5 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/breast-cancer-wisconsin.csv', delimiter = ',')
+    data6 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/data_banknote_authentication.csv', delimiter = ',')
+    data7 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/heartdes.csv', delimiter = ',')
+    data8 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/indian_liver_patient_dataset.csv', delimiter = ',')
+    data9 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/iris_dataset.csv', delimiter = ',')
+    data10 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/seeds_dataset.csv', delimiter = ',')
     for j in np.arange(0.1, 0.9, 0.15):
         train_data1 , test_data1 = train_test_split(data1,test_size=j)
         train_data2 , test_data2 = train_test_split(data2,test_size=j)
