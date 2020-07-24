@@ -282,7 +282,7 @@ if __name__ == '__main__':
     data8 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/indian_liver_patient_dataset.csv', delimiter = ',')
     data9 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/iris_dataset.csv', delimiter = ',')
     data10 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/seeds_dataset.csv', delimiter = ',')
-    for j in np.arange(0.1, 0.9, 0.1):
+    for j in np.arange(0.2, 0.5, 0.1):
         train_data1 , test_data1 = train_test_split(data1,test_size=j)
         #train_data2 , test_data2 = train_test_split(data2,test_size=j)
         train_data3 , test_data3 = train_test_split(data3,test_size=j)
@@ -296,20 +296,20 @@ if __name__ == '__main__':
     
         trees_list = []
         accuracy_list = []
-        for i in np.arange(0.1, 10, 0.5):
+        for i in np.arange(3, 7, 0.9):
             #forest1forest1 = DP_Random_Forest(train_data1[0:15], test_data1, [16,], 2, 0.1)
             #forest2 = DP_Random_Forest(train_data2[1:4], test_data2, [0,], 2, 0.1)
             #forest3 = DP_Random_Forest(train_data3[1:35], test_data3, [0,], 6, i)
             #forest4 = DP_Random_Forest(train_data4[1:27], test_data4, [0,], 2, 0.1)
             #forest5 = DP_Random_Forest(train_data5[1:10], test_data5, [0,], 2, 0.1)
-            forest6 = DP_Random_Forest(train_data6[1:4], test_data6, [0,], 9, i)
-            #forest7 = DP_Random_Forest(train_data7[1:13], test_data7, [0,], 2, 0.1)
+            #forest6 = DP_Random_Forest(train_data6[1:4], test_data6, [0,], 9, i)
+            forest7 = DP_Random_Forest(train_data7[1:13], test_data7, [0,], 6, i)
             #forest8 = DP_Random_Forest(train_data8[1:10], test_data8, [0,], 15,i)
             #forest9 = DP_Random_Forest(train_data9[1:4], test_data9, [0,], 8, i)
             #forest10 = DP_Random_Forest(train_data10[1:7],test_data10, [0,], 15, i)
             trees_list.append(i)
-            accuracy_list.append(forest6._accuracy*100)
-            print('accuracy = '+str(forest6._accuracy*100))
+            accuracy_list.append(forest7._accuracy*100)
+            print('accuracy = '+str(forest7._accuracy*100))
         print(trees_list)
         print(accuracy_list)
         #print('accuracy = '+str(forest2._accuracy*100))
