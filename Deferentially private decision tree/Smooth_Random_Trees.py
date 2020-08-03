@@ -268,9 +268,6 @@ class Tree(DP_Random_Forest):
 
     
 #plot_pr_curve(precision_all, recall_all, 'Precision recall curve (all)')
-
-
-''' A toy example of how to call the class '''
 if __name__ == '__main__':
     data1 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/a.csv', delimiter = ',')
     #data2 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/b.csv', delimiter = ',')
