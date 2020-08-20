@@ -36,10 +36,9 @@ class node:
             else:
                 all_counts = sorted([v for k,v in self._class_counts.items()], reverse=True)
                 count_difference = all_counts[0] - all_counts[1]
-                self._sensitivity = math.exp(-1 * count_difference * epsilon)
+                self._sensitivity = math.exp(-1 * count_difference * epsilon) + self.medianMechanism(10,5,1000)
                 self._sens_of_sens = 1.
-                self._noisy_sensitivity = 1.
-
+                self._noisy_sensitivity = 1
                 self._noisy_majority = self.expo_mech(epsilon, self._sensitivity, self._class_counts)
 
                 if self._noisy_majority != int(max(self._class_counts.keys(), key=(lambda key: self._class_counts[key]))):
@@ -55,8 +54,21 @@ class node:
             noisy_counts[label] = max( 0, int(count + np.random.laplace(scale=float(1./(2*e)))) )
         return int(max(noisy_counts.keys(), key=(lambda key: noisy_counts[key])))
 
+    def medianMechanism(self,e,s,cot):
+        noisy_counts = {}
+        m = (160000 * math.log2(1/e) * cot)/e^2
+        a = 1
+        a1 = a/(720*m*math.log2(cot))
+        tau = 4/(a1*e*s) * math.log2(2*s/a1)
+        for label,count in range(cot):
+            new_counts = 0
+            ti = 3/4 + count
+            noisy_counts[label] = max( 0, int(count + np.random.laplace(scale=float(tau))))
+            if noisy_counts[label] < ti :
+                new_counts+= count + np.random.laplace(scale=float(1/cot*a1))
+        return new_counts
+
     def expo_mech(self, e, s, counts):
-        
         weighted = []
         max_count = max([v for k,v in counts.items()])
         
