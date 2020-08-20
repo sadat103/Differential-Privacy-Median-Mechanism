@@ -54,7 +54,7 @@ class node:
             noisy_counts[label] = max( 0, int(count + np.random.laplace(scale=float(1./(2*e)))) )
         return int(max(noisy_counts.keys(), key=(lambda key: noisy_counts[key])))
 
-    def medianMechanism(self,e,s,cot):
+    def medianMechanism(self,e,s,cot): ##my propose method Sadat Bin Faruque
         noisy_counts = {}
         m = (160000 * math.log2(1/e) * cot)/e^2
         a = 1
