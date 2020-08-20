@@ -4,7 +4,7 @@ import numpy as np
 import math
 import multiprocessing as multi
 from sklearn.model_selection import train_test_split
-import node # local module
+import node 
 import matplotlib.pyplot as plt
 
 
