@@ -68,7 +68,7 @@ class node:
                 new_counts+= count + np.random.laplace(scale=float(1/cot*a1))
         return new_counts
 
-    def expo_mech(self, e, s, counts):
+    def expo_mech(self, e, s, counts):       #used for median mechanism
         weighted = []
         max_count = max([v for k,v in counts.items()])
         
