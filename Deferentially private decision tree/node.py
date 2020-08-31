@@ -56,12 +56,13 @@ class node:
 
     def medianMechanism(self,e,s,cot): ##my propose method Sadat Bin Faruque
         noisy_counts = {}
-        m = (160000 * math.log2(1/e) * cot)/e^2
+        m = (160000 * math.log2(1/e) * cot)/e
         a = 1
+        d = math.log2((2*s)/a)
         a1 = a/(720*m*math.log2(cot))
-        tau = 4/(a1*e*s) * math.log2(2*s/a1)
-        for label,count in range(cot):
-            new_counts = 0
+        tau = 4/(a1*e*s) * d
+        new_counts = 0
+        for label,count in np.arange(1,0.5,cot):
             ti = 3/4 + count
             noisy_counts[label] = max( 0, int(count + np.random.laplace(scale=float(tau))))
             if noisy_counts[label] < ti :
