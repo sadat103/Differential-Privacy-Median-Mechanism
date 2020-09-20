@@ -282,7 +282,8 @@ if __name__ == '__main__':
     data11 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/sonar.all-data.csv', delimiter = ',')
     data12 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/kr-vs-kp.data.csv', delimiter = ',')
     data13 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/biodeg.csv', delimiter = ',')
-    for j in np.arange(0.5, 0.6, 0.1):
+    data14 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/winequality-red.csv', delimiter = ',')
+    for j in np.arange(0.4, 0.6, 0.1):
         train_data1 , test_data1 = train_test_split(data1,test_size=j)
         #train_data2 , test_data2 = train_test_split(data2,test_size=j)
         train_data3 , test_data3 = train_test_split(data3,test_size=j)
@@ -296,6 +297,7 @@ if __name__ == '__main__':
         train_data11 , test_data11 = train_test_split(data11,test_size=j)
         train_data12 , test_data12 = train_test_split(data12,test_size=j)
         train_data13 , test_data13 = train_test_split(data13,test_size=j)
+        train_data14 , test_data14 = train_test_split(data13,test_size=j)
         budget_list = []
         accuracy_list = []
         for i in np.arange(3, 15, 2):
@@ -307,13 +309,14 @@ if __name__ == '__main__':
             #forest6 = DP_Random_Forest(train_data6[1:4], test_data6, [0,], 12, i)
             #forest7 = DP_Random_Forest(train_data7[1:13], test_data7, [0,], 6, i)
             #forest8 = DP_Random_Forest(train_data8[1:10], test_data8, [0,], 15,i)
-            #forest9 = DP_Random_Forest(train_data9[1:4], test_data9, [0,], 8, i)
+            #forest9 = DP_Random_Forest(train_data9[1:4], test_data9, [0,], 15, i)
             #forest10 = DP_Random_Forest(train_data10[1:7],test_data10, [0,], 15, i)
-            #forest11 = DP_Random_Forest(train_data11[1:60],test_data11, [0,], 25, i)
-            forest13 = DP_Random_Forest(train_data13[1:41],test_data13, [0,], 25, i)
+            #forest11 = DP_Random_Forest(train_data11[1:60],test_data11, [0,], 20, i)
+            #forest13 = DP_Random_Forest(train_data13[1:41],test_data13, [0,], 25, i)
+            forest14 = DP_Random_Forest(train_data14[1:11], test_data14, [0,], 10, i)
             budget_list.append(i)
-            accuracy_list.append(forest13._accuracy*100)
-            print('accuracy = '+str(forest13._accuracy*100))
+            accuracy_list.append(forest14._accuracy*100)
+            print('accuracy = '+str(forest14._accuracy*100))
         print(budget_list)
         print(accuracy_list)
         #print('accuracy = '+str(forest2._accuracy*100))
