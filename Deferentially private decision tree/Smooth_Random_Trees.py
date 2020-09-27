@@ -283,6 +283,7 @@ if __name__ == '__main__':
     data12 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/kr-vs-kp.data.csv', delimiter = ',')
     data13 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/biodeg.csv', delimiter = ',')
     data14 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/winequality-red.csv', delimiter = ',')
+    data15 = np.genfromtxt('/home/sadat/Documents/ThesisCode/Thesis/Deferentially private decision tree/default of credit card clients.csv', delimiter = ',')
     for j in np.arange(0.4, 0.6, 0.1):
         train_data1 , test_data1 = train_test_split(data1,test_size=j)
         #train_data2 , test_data2 = train_test_split(data2,test_size=j)
@@ -297,7 +298,8 @@ if __name__ == '__main__':
         train_data11 , test_data11 = train_test_split(data11,test_size=j)
         train_data12 , test_data12 = train_test_split(data12,test_size=j)
         train_data13 , test_data13 = train_test_split(data13,test_size=j)
-        train_data14 , test_data14 = train_test_split(data13,test_size=j)
+        train_data14 , test_data14 = train_test_split(data14,test_size=j)
+        train_data15 , test_data15 = train_test_split(data15,test_size=j)
         budget_list = []
         accuracy_list = []
         for i in np.arange(3, 15, 2):
@@ -313,10 +315,11 @@ if __name__ == '__main__':
             #forest10 = DP_Random_Forest(train_data10[1:7],test_data10, [0,], 15, i)
             #forest11 = DP_Random_Forest(train_data11[1:60],test_data11, [0,], 20, i)
             #forest13 = DP_Random_Forest(train_data13[1:41],test_data13, [0,], 25, i)
-            forest14 = DP_Random_Forest(train_data14[1:11], test_data14, [0,], 10, i)
+            #forest14 = DP_Random_Forest(train_data14[1:11], test_data14, [0,], 10, i)
+            forest15 = DP_Random_Forest(train_data15[1:23], test_data15, [0,], 25, i)
             budget_list.append(i)
-            accuracy_list.append(forest14._accuracy*100)
-            print('accuracy = '+str(forest14._accuracy*100))
+            accuracy_list.append(forest15._accuracy*100)
+            print('accuracy = '+str(forest15._accuracy*100))
         print(budget_list)
         print(accuracy_list)
         #print('accuracy = '+str(forest2._accuracy*100))
