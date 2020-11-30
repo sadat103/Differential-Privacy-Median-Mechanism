@@ -306,9 +306,9 @@ if __name__ == '__main__':
         train_data16 , test_data16 = train_test_split(data16,test_size=j)
         train_data17 , test_data17 = train_test_split(data17,test_size=j)
         train_data18 , test_data18 = train_test_split(data18,test_size=j)
-        tree_list = []
+        budget_list = []
         accuracy_list = []
-        for i in np.arange(25, 36, 5):
+        for i in np.arange(10,21 , 5):
             #forest1forest1 = DP_Random_Forest(train_data1[0:15], test_data1, [16,], 2, 0.1)
             #forest2 = DP_Random_Forest(train_data2[1:4], test_data2, [0,], 2, 0.1)
             #forest3 = DP_Random_Forest(train_data3[1:35], test_data3, [0,], 6, i)
@@ -319,25 +319,25 @@ if __name__ == '__main__':
             #forest8 = DP_Random_Forest(train_data8[1:10], test_data8, [0,], 15,i)
             #forest9 = DP_Random_Forest(train_data9[1:4], test_data9, [0,], 15, i)
             #forest10 = DP_Random_Forest(train_data10[1:7],test_data10, [0,], 15, i)
-            #forest11 = DP_Random_Forest(train_data11[1:60],test_data11, [0,], 20, i)
-            #forest13 = DP_Random_Forest(train_data13[1:41],test_data13, [0,], 25, i)
-            #forest14 = DP_Random_Forest(train_data14[1:11], test_data14, [0,], 10, i)
+            #forest11 = DP_Random_Forest(train_data11[1:60],test_data11, [0,], 25, i)
+            #forest13 = DP_Random_Forest(train_data13[1:41],test_data13, [0,], 30, i)
+            #forest14 = DP_Random_Forest(train_data14[1:11], test_data14, [0,], 30, i)
             #forest15 = DP_Random_Forest(train_data15[1:23], test_data15, [0,], 30, i)
             forest16 = DP_Random_Forest(train_data16[1:170], test_data16, [0,], i, 15)
             #forest17 = DP_Random_Forest(train_data17[1:16], test_data17, [0,], i, 20)
             #forest18 = DP_Random_Forest(train_data18[1:49], test_data18, [0,], i, 10)
-            tree_list.append(i)
+            budget_list.append(i)
             accuracy_list.append(forest16._accuracy*100)
             print('accuracy = '+str(forest16._accuracy*100))
-        print(tree_list)
+        print(budget_list)
         print(accuracy_list)
         #print('accuracy = '+str(forest2._accuracy*100))
         #%matplotlib inline
         plt.rcParams['figure.figsize'] = 7, 5
         plt.locator_params(axis = 'x', nbins = 5)
-        plt.plot(tree_list, accuracy_list, 'b-', linewidth=3.0, color = '#B0017F')
+        plt.plot(budget_list, accuracy_list, 'b-', linewidth=3.0, color = '#B0017F')
         plt.title('tree-accuracy curve for fixed budget and train test ratio' +str(j))
-        plt.xlabel('tree')
+        plt.xlabel('budget')
         plt.ylabel('accuracy')
         plt.rcParams.update({'font.size': 10})
         plt.show()
