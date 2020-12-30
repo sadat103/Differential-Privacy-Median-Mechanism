@@ -2,6 +2,7 @@ from collections import defaultdict
 import random
 import numpy as np
 import math
+import statistics
 from scipy import stats # for Exponential Mechanism
 
 class node:
@@ -35,11 +36,16 @@ class node:
                 return 0 # we dont want to count purely random flips
             else:
                 all_counts = sorted([v for k,v in self._class_counts.items()], reverse=True)
+                v_0 = 0
                 count_difference = all_counts[0] - all_counts[1]
-                self._sensitivity = math.exp(-1 * count_difference * epsilon) + self.medianMechanism(10,5,1000)
-                self._sens_of_sens = 1.
-                self._noisy_sensitivity = 1
-                self._noisy_majority = self.expo_mech(epsilon, self._sensitivity, self._class_counts)
+                v = statistics.variance(self._class_counts)
+                if (v < v_0):
+                    self._sensitivity = math.exp(-1 * count_difference * epsilon) + self.medianMechanism(10,5,1000)
+                    v_0 = v
+                else:
+                    self._sens_of_sens = 1.
+                    self._noisy_sensitivity = 1
+                    self._noisy_majority = self.expo_mech(epsilon, self._sensitivity, self._class_counts)
 
                 if self._noisy_majority != int(max(self._class_counts.keys(), key=(lambda key: self._class_counts[key]))):
                     #print('majority: '+str(self._noisy_majority)+' vs. max_count: '+str( max(self._class_counts.keys(), key=(lambda key: self._class_counts[key]))))
