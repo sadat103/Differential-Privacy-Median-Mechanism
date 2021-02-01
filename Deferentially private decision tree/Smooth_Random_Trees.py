@@ -323,7 +323,7 @@ if __name__ == '__main__':
             #forest11 = DP_Random_Forest(train_data11[1:60],test_data11, [0,], 25, i)
             #forest13 = DP_Random_Forest(train_data13[1:41],test_data13, [0,], 30, i)
             #forest14 = DP_Random_Forest(train_data14[1:11], test_data14, [0,], 30, i)
-            forest15 = DP_Random_Forest(train_data15[1:23], test_data15, [0,], 30, i)
+            forest15 = DP_Random_Forest(train_data15[1:23], test_data15, [0,], i,15)
             #forest16 = DP_Random_Forest(train_data16[1:170], test_data16, [0,], i, 20)
             #forest17 = DP_Random_Forest(train_data17[1:16], test_data17, [0,], i, 20)
             #forest18 = DP_Random_Forest(train_data18[1:49], test_data18, [0,], i, 10)

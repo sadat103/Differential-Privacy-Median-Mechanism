@@ -40,7 +40,8 @@ class node:
                 count_difference = all_counts[0] - all_counts[1]
                 v = statistics.variance(self._class_counts)
                 if (v < v_0):
-                    self._sensitivity = math.exp(-1 * count_difference * epsilon) + self.medianMechanism(10,5,1000)
+                    e1 = v - v_0
+                    self._sensitivity = math.exp(-1 * count_difference * epsilon*e1) + self.medianMechanism(10,5,1000)
                     v_0 = v
                 else:
                     self._sens_of_sens = 1.
